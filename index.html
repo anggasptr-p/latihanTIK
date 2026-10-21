@@ -1,90 +1,488 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ardhiansyah | root@blackarch: ~</title>
-    <!-- Google Fonts: Fira Code untuk nuansa terminal -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VANTERRA® — Technical Trail Gear</title>
+<meta name="description" content="VANTERRA builds technical apparel, footwear and packs for the long way down. Tested above the treeline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Efek Matrix Rain -->
-    <canvas id="matrix-canvas"></canvas>
 
-    <!-- Lapisan Overlay biar teks tetap kebaca -->
-    <div class="overlay"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="overlay" id="overlay"></div>
 
-    <main class="terminal-window">
-        <!-- Terminal Header -->
-        <div class="terminal-header">
-            <div class="buttons">
-                <span class="btn close"></span>
-                <span class="btn minimize"></span>
-                <span class="btn maximize"></span>
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="topbar">
+    <p>Free express shipping over $150 &nbsp;·&nbsp; 30-day trail trial &nbsp;·&nbsp; Lifetime repairs</p>
+  </div>
+
+  <nav class="nav">
+    <a class="brand" href="#top">VANTERRA<span>®</span></a>
+
+    <ul class="nav__links">
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#tech">Technology</a></li>
+      <li><a href="#story">Field Notes</a></li>
+    </ul>
+
+    <div class="nav__actions">
+      <button class="icon-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      </button>
+      <button class="icon-btn" id="cartOpen" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 7.5h12l-1.1 12.5H7.1L6 7.5Z"/><path d="M9.2 7.5a2.8 2.8 0 0 1 5.6 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="progress"><div class="progress__bar" id="progressBar"></div></div>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#tech">Technology</a></li>
+    <li><a href="#story">Field Notes</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+  </ul>
+  <div class="mobile-menu__foot">
+    <p>Free shipping over $150</p>
+    <p>hello@vanterra.co</p>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__media">
+      <img id="heroImg"
+           src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=2200&q=80"
+           alt="Two hikers on a mountain ridge at sunrise">
+    </div>
+    <div class="hero__veil"></div>
+
+    <div class="hero__inner">
+      <p class="eyebrow"><span class="dot"></span> SS25 — Alpine Trail Collection</p>
+
+      <h1 class="hero__title">
+        <span>Built for</span>
+        <span>the long</span>
+        <span class="stroke">way down.</span>
+      </h1>
+
+      <p class="hero__lead">
+        Technical apparel, footwear and packs engineered above the treeline.
+        Field-tested on ridgelines, scree fields and 4am starts.
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn btn--volt" href="#shop">Shop the collection</a>
+        <a class="btn btn--ghost" href="#tech">Our technology</a>
+      </div>
+    </div>
+
+    <div class="hero__stats">
+      <div class="stat">
+        <span class="stat__num" data-count="142" data-suffix="+">0</span>
+        <span class="stat__label">Products field-tested</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num" data-count="38" data-suffix="k">0</span>
+        <span class="stat__label">Trail miles logged</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num" data-count="12" data-suffix="yr">0</span>
+        <span class="stat__label">Repair guarantee</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span class="marquee__group">
+        <span>Waterproof 20K/20K</span><i>◆</i>
+        <span>Recycled Ripstop</span><i>◆</i>
+        <span>Seam-Sealed</span><i>◆</i>
+        <span>Vibram® Outsoles</span><i>◆</i>
+        <span>Lifetime Repairs</span><i>◆</i>
+        <span>Bluesign® Approved</span><i>◆</i>
+      </span>
+      <span class="marquee__group">
+        <span>Waterproof 20K/20K</span><i>◆</i>
+        <span>Recycled Ripstop</span><i>◆</i>
+        <span>Seam-Sealed</span><i>◆</i>
+        <span>Vibram® Outsoles</span><i>◆</i>
+        <span>Lifetime Repairs</span><i>◆</i>
+        <span>Bluesign® Approved</span><i>◆</i>
+      </span>
+    </div>
+  </div>
+
+  <!-- ============ COLLECTIONS ============ -->
+  <section class="section" id="collections">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="dot"></span> 01 — Collections</p>
+        <h2 class="section-title">Pick your<br>terrain</h2>
+        <p class="section-sub">Three systems. One philosophy: nothing leaves the design table until it's survived a real mountain.</p>
+      </div>
+
+      <div class="collections">
+        <a class="collection reveal" href="#shop" style="--d:.0s">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+               alt="Alpine peaks" data-label="ALPINE">
+          <div class="collection__shade"></div>
+          <div class="collection__body">
+            <span class="collection__idx">01</span>
+            <h3>Alpine Series</h3>
+            <p>Shells, insulation &amp; summit layers</p>
+            <span class="collection__link">Explore <i>→</i></span>
+          </div>
+        </a>
+
+        <a class="collection reveal" href="#shop" style="--d:.1s">
+          <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=1200&q=80"
+               alt="Trail runner on mountain path" data-label="TRAIL">
+          <div class="collection__shade"></div>
+          <div class="collection__body">
+            <span class="collection__idx">02</span>
+            <h3>Trail Running</h3>
+            <p>Featherweight footwear &amp; run layers</p>
+            <span class="collection__link">Explore <i>→</i></span>
+          </div>
+        </a>
+
+        <a class="collection reveal" href="#shop" style="--d:.2s">
+          <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1200&q=80"
+               alt="Foggy mountain range" data-label="TREK">
+          <div class="collection__shade"></div>
+          <div class="collection__body">
+            <span class="collection__idx">03</span>
+            <h3>Trek &amp; Camp</h3>
+            <p>Packs, duffels &amp; basecamp gear</p>
+            <span class="collection__link">Explore <i>→</i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOP ============ -->
+  <section class="section section--shop" id="shop">
+    <div class="container">
+      <div class="shop-head">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="dot"></span> 02 — Best sellers</p>
+          <h2 class="section-title">Field-tested<br>essentials</h2>
+        </div>
+
+        <div class="filters reveal" role="tablist" aria-label="Filter products">
+          <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter" data-filter="apparel" role="tab" aria-selected="false">Apparel</button>
+          <button class="filter" data-filter="footwear" role="tab" aria-selected="false">Footwear</button>
+          <button class="filter" data-filter="gear" role="tab" aria-selected="false">Gear</button>
+        </div>
+      </div>
+
+      <div class="products" id="products">
+
+        <article class="product" data-cat="apparel">
+          <div class="product__media">
+            <span class="badge badge--new">New</span>
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=80"
+                 alt="Ridgeline GTX Shell jacket">
+            <button class="quick-add" data-name="Ridgeline GTX Shell" data-price="289">Quick add +</button>
+          </div>
+          <div class="product__info">
+            <p class="product__cat">Apparel / Shell</p>
+            <h3 class="product__name">Ridgeline GTX Shell</h3>
+            <p class="product__price">$289</p>
+          </div>
+        </article>
+
+        <article class="product" data-cat="footwear">
+          <div class="product__media">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
+                 alt="Summit Runner 2.0 trail shoe">
+            <button class="quick-add" data-name="Summit Runner 2.0" data-price="165">Quick add +</button>
+          </div>
+          <div class="product__info">
+            <p class="product__cat">Footwear / Trail</p>
+            <h3 class="product__name">Summit Runner 2.0</h3>
+            <p class="product__price">$165</p>
+          </div>
+        </article>
+
+        <article class="product" data-cat="gear">
+          <div class="product__media">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80"
+                 alt="Apex 45L pack">
+            <button class="quick-add" data-name="Apex 45L Pack" data-price="210">Quick add +</button>
+          </div>
+          <div class="product__info">
+            <p class="product__cat">Gear / Backpack</p>
+            <h3 class="product__name">Apex 45L Pack</h3>
+            <p class="product__price">$210</p>
+          </div>
+        </article>
+
+        <article class="product" data-cat="footwear">
+          <div class="product__media">
+            <span class="badge badge--sale">−20%</span>
+            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=80"
+                 alt="Scree approach shoe">
+            <button class="quick-add" data-name="Scree Approach Shoe" data-price="195">Quick add +</button>
+          </div>
+          <div class="product__info">
+            <p class="product__cat">Footwear / Approach</p>
+            <h3 class="product__name">Scree Approach Shoe</h3>
+            <p class="product__price"><s>$240</s> $195</p>
+          </div>
+        </article>
+
+        <article class="product" data-cat="apparel">
+          <div class="product__media">
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80"
+                 alt="Alpine fleece midlayer">
+            <button class="quick-add" data-name="Alpine Fleece Midlayer" data-price="135">Quick add +</button>
+          </div>
+          <div class="product__info">
+            <p class="product__cat">Apparel / Midlayer</p>
+            <h3 class="product__name">Alpine Fleece Midlayer</h3>
+            <p class="product__price">$135</p>
+          </div>
+        </article>
+
+        <article class="product" data-cat="gear">
+          <div class="product__media">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80&sat=-35"
+                 alt="Basecamp duffel 60L">
+            <button class="quick-add" data-name="Basecamp Duffel 60L" data-price="140">Quick add +</button>
+          </div>
+          <div class="product__info">
+            <p class="product__cat">Gear / Duffel</p>
+            <h3 class="product__name">Basecamp Duffel 60L</h3>
+            <p class="product__price">$140</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TECHNOLOGY ============ -->
+  <section class="section section--tech" id="tech">
+    <div class="container tech">
+      <div class="tech__media reveal">
+        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80"
+             alt="Fog rolling through a forest" data-label="TECHNOLOGY">
+        <div class="tech__stamp">
+          <span>20K</span>
+          <small>Waterproof<br>Rating</small>
+        </div>
+      </div>
+
+      <div class="tech__body">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="dot"></span> 03 — Technology</p>
+          <h2 class="section-title">Engineered<br>to outlast<br>the weather</h2>
+        </div>
+
+        <ul class="features">
+          <li class="feature reveal" style="--d:.05s">
+            <span class="feature__num">01</span>
+            <div>
+              <h3>AeroShell™ Membrane</h3>
+              <p>A 20,000mm waterproof / 20,000g breathable laminate that keeps storms out without trapping heat on the climb.</p>
             </div>
-            <div class="title">root@blackarch: ~/portfolio</div>
+          </li>
+          <li class="feature reveal" style="--d:.1s">
+            <span class="feature__num">02</span>
+            <div>
+              <h3>Vibram® Megagrip</h3>
+              <p>5mm lug depth with a sticky rubber compound — confident on wet granite, loose scree and everything between.</p>
+            </div>
+          </li>
+          <li class="feature reveal" style="--d:.15s">
+            <span class="feature__num">03</span>
+            <div>
+              <h3>Recycled Ripstop</h3>
+              <p>78% post-consumer nylon with a rip-grid weave. Lighter, tougher, and bluesign® approved from fibre to finish.</p>
+            </div>
+          </li>
+          <li class="feature reveal" style="--d:.2s">
+            <span class="feature__num">04</span>
+            <div>
+              <h3>Lifetime Repair Program</h3>
+              <p>Torn a seam? Blown a zip? Send it back. We repair or replace — free, for as long as you own it.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section class="story" id="story">
+    <div class="story__media">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1800&q=80"
+           alt="Mountain lake at dawn" data-label="FIELD NOTES">
+    </div>
+    <div class="story__veil"></div>
+    <div class="container story__inner">
+      <p class="eyebrow reveal"><span class="dot"></span> 04 — Field Notes</p>
+      <blockquote class="story__quote reveal" style="--d:.08s">
+        “We don't design for the car park.<br>We design for the fifth hour.”
+      </blockquote>
+      <p class="story__text reveal" style="--d:.16s">
+        VANTERRA started in a garage in Bandung with one rule: every piece has to earn its place on a real mountain.
+        No lifestyle padding, no shelf-filler colourways. Just gear that works when the weather turns and the
+        car is four hours away.
+      </p>
+      <a class="btn btn--ghost reveal" style="--d:.22s" href="#newsletter">Read the journal</a>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="dot"></span> 05 — Verified reviews</p>
+        <h2 class="section-title">From the<br>trailhead</h2>
+      </div>
+
+      <div class="reviews">
+        <figure class="review reveal" style="--d:.0s">
+          <div class="review__stars">★★★★★</div>
+          <blockquote>Wore the Ridgeline shell through 6 hours of sideways rain on Rinjani. Bone dry inside. I've stopped looking at other brands.</blockquote>
+          <figcaption><strong>Arif N.</strong><span>Summit Pack · Verified</span></figcaption>
+        </figure>
+
+        <figure class="review reveal" style="--d:.08s">
+          <div class="review__stars">★★★★★</div>
+          <blockquote>The Summit Runner 2.0 is the first trail shoe that didn't shred my feet on a 30km. Grip on wet rock is genuinely absurd.</blockquote>
+          <figcaption><strong>Melissa T.</strong><span>Trail Runner · Verified</span></figcaption>
+        </figure>
+
+        <figure class="review reveal" style="--d:.16s">
+          <div class="review__stars">★★★★★</div>
+          <blockquote>Sent my 4-year-old Apex pack in for a repair — came back looking nearly new, no charge. That's why I keep buying.</blockquote>
+          <figcaption><strong>Daniel K.</strong><span>Apex 45L · Verified</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="newsletter" id="newsletter">
+    <div class="container newsletter__inner">
+      <div class="reveal">
+        <p class="eyebrow"><span class="dot"></span> 06 — Join the crew</p>
+        <h2 class="newsletter__title">Get 10% off<br>your first kit</h2>
+        <p class="newsletter__sub">Early access to drops, trail guides and gear repair tips. No spam, ever.</p>
+      </div>
+
+      <form class="newsletter__form reveal" id="newsletterForm" style="--d:.1s" novalidate>
+        <div class="field">
+          <input type="email" id="email" placeholder="you@email.com" required autocomplete="email" aria-label="Email address">
+          <button type="submit">Subscribe →</button>
         </div>
+        <p class="newsletter__msg" id="newsletterMsg">By subscribing you agree to our terms &amp; privacy policy.</p>
+      </form>
+    </div>
+  </section>
 
-        <!-- Terminal Body -->
-        <div class="terminal-body">
-            
-            <!-- Profile Section -->
-            <section class="hero">
-                <div class="profile-container">
-                    <!-- Placeholder: Bisa lu ganti pakai foto lu, atau biarin pakai avatar hacker -->
-                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Hacker&backgroundColor=000000" alt="Profile" class="profile-img">
-                </div>
-                
-                <div class="info">
-                    <h1 class="name">Ardhiansyah Emir Aryoputro</h1>
-                    <div class="role-container">
-                        <span class="prompt">┌──(user㉿blackarch)-[~]</span><br>
-                        <span class="prompt">└─$</span> <span class="role" id="typing-text"></span><span class="cursor">_</span>
-                    </div>
-                    
-                    <p class="bio">
-                        <span class="highlight-green">[+]</span> Siswa SMA yang mendalami <span class="highlight-red">Web Development</span> & <span class="highlight-red">Cybersecurity</span>.<br>
-                        <span class="highlight-green">[+]</span> Aktif sebagai <span class="highlight-white">Intermediate CTF Player</span>.<br>
-                        <span class="highlight-green">[+]</span> Tech stack: Laravel, Next.js, React, & Fundamental Web.
-                    </p>
-                </div>
-            </section>
+</main>
 
-            <!-- Skills Section -->
-            <section class="skills">
-                <h2><span class="highlight-green">></span> cat skills.txt</h2>
-                <div class="skill-list">
-                    <div class="skill-item"><span class="tag">[WEB]</span> HTML5 / CSS3 / JavaScript</div>
-                    <div class="skill-item"><span class="tag">[FRAMEWORK]</span> Laravel / React / Next.js</div>
-                    <div class="skill-item"><span class="tag red">[SEC]</span> Intermediate CTF Player</div>
-                    <div class="skill-item"><span class="tag red">[SEC]</span> Linux (BlackArch) / Networking</div>
-                </div>
-            </section>
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a class="brand" href="#top">VANTERRA<span>®</span></a>
+      <p>Technical trail gear for the long way down.<br>Bandung, Indonesia — est. 2013.</p>
+      <div class="footer__social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="YouTube">YT</a>
+        <a href="#" aria-label="TikTok">TT</a>
+      </div>
+    </div>
 
-            <!-- Connect Section -->
-            <section class="connect">
-                <h2><span class="highlight-green">></span> ./connect.sh --social</h2>
-                <div class="links">
-                    <a href="https://wa.me/6281234567890" target="_blank" class="btn">
-                        <span class="prefix">></span> WhatsApp
-                    </a>
-                    <a href="https://github.com/username-lu" target="_blank" class="btn">
-                        <span class="prefix">></span> GitHub
-                    </a>
-                    <a href="https://instagram.com/username-lu" target="_blank" class="btn">
-                        <span class="prefix">></span> Instagram
-                    </a>
-                </div>
-            </section>
+    <div class="footer__col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#shop">Apparel</a></li>
+        <li><a href="#shop">Footwear</a></li>
+        <li><a href="#shop">Packs &amp; Gear</a></li>
+        <li><a href="#shop">Sale</a></li>
+      </ul>
+    </div>
 
-        </div>
-    </main>
+    <div class="footer__col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#story">About</a></li>
+        <li><a href="#tech">Technology</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
 
-    <footer>
-        <p>Copyright © 2024 Ardhiansyah. All systems operational.</p>
-    </footer>
+    <div class="footer__col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Repairs</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+  <div class="container footer__bottom">
+    <p>© <span id="year">2025</span> VANTERRA®. All rights reserved.</p>
+    <div class="footer__legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CART DRAWER ============ -->
+<aside class="cart" id="cart" aria-hidden="true" aria-label="Shopping bag">
+  <header class="cart__head">
+    <h3>Your bag <span id="cartCount2">(0)</span></h3>
+    <button class="icon-btn" id="cartClose" aria-label="Close cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+  </header>
+
+  <div class="cart__body">
+    <ul class="cart__list" id="cartList"></ul>
+    <p class="cart__empty" id="cartEmpty">Your bag is empty.<br><span>Time to gear up.</span></p>
+  </div>
+
+  <footer class="cart__foot">
+    <div class="cart__total"><span>Subtotal</span><span id="cartTotal">$0</span></div>
+    <button class="btn btn--volt btn--full" id="checkoutBtn">Checkout</button>
+    <p class="cart__note">Free shipping over $150 · 30-day returns</p>
+  </footer>
+</aside>
+
+<script src="script.js" defer></script>
 </body>
 </html>
