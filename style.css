@@ -1,5 +1,5 @@
 body {
-  background-color: #666362;
+  background-color: #000000;
   font-family: 'Poppins', sans-serif;
   color: #5f17ff;
 }
@@ -8,7 +8,7 @@ body {
   width: 400px;
   margin: 50px auto;
   padding: 20px;
-  background-color: white;
+  background-color: #666362;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 } 
