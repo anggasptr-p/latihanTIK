@@ -3,70 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ardhiansyah - Portfolio</title>
-    <!-- Hubungkan ke CSS -->
+    <title>Ardhiansyah | root@blackarch: ~</title>
+    <!-- Google Fonts: Fira Code untuk nuansa terminal -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Font dari Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Ikon dari FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Background Effect -->
-    <div class="bg-glow"></div>
+    <!-- Efek Matrix Rain -->
+    <canvas id="matrix-canvas"></canvas>
 
-    <main class="container">
-        <!-- Profile Section -->
-        <section class="hero">
-            <div class="profile-img-container">
-                <!-- GANTI URL INI PAKAI FOTO LU NANTI -->
-                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Ardhiansyah&backgroundColor=00f2fe" alt="Foto Profil" class="profile-img">
-            </div>
-            
-            <h1 class="name">Ardhiansyah Emir Aryoputro</h1>
-            
-            <!-- Efek typing diatur di script.js -->
-            <p class="role" id="typing-text"></p>
-            
-            <p class="bio">
-                Siswa SMA yang sedang mendalami dunia <strong>Web Development</strong> dan <strong>Cybersecurity</strong>. 
-                Biasa ngoding pakai Laravel, React, dan Next.js, tapi hari ini lagi asik poles fundamental HTML, CSS, & JS.
-            </p>
+    <!-- Lapisan Overlay biar teks tetap kebaca -->
+    <div class="overlay"></div>
 
-            <!-- Social Links -->
-            <div class="social-links">
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-wa" title="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://github.com/username-lu" target="_blank" class="btn btn-gh" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://instagram.com/username-lu" target="_blank" class="btn btn-ig" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
+    <main class="terminal-window">
+        <!-- Terminal Header -->
+        <div class="terminal-header">
+            <div class="buttons">
+                <span class="btn close"></span>
+                <span class="btn minimize"></span>
+                <span class="btn maximize"></span>
             </div>
-        </section>
+            <div class="title">root@blackarch: ~/portfolio</div>
+        </div>
 
-        <!-- Skills Section -->
-        <section class="skills">
-            <h2>Tech Stack & Interests</h2>
-            <div class="badges">
-                <span class="badge">HTML5</span>
-                <span class="badge">CSS3</span>
-                <span class="badge">JavaScript</span>
-                <span class="badge">Laravel</span>
-                <span class="badge">React</span>
-                <span class="badge">Next.js</span>
-                <span class="badge">CyberSec</span>
-            </div>
-        </section>
+        <!-- Terminal Body -->
+        <div class="terminal-body">
+            
+            <!-- Profile Section -->
+            <section class="hero">
+                <div class="profile-container">
+                    <!-- Placeholder: Bisa lu ganti pakai foto lu, atau biarin pakai avatar hacker -->
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Hacker&backgroundColor=000000" alt="Profile" class="profile-img">
+                </div>
+                
+                <div class="info">
+                    <h1 class="name">Ardhiansyah Emir Aryoputro</h1>
+                    <div class="role-container">
+                        <span class="prompt">┌──(user㉿blackarch)-[~]</span><br>
+                        <span class="prompt">└─$</span> <span class="role" id="typing-text"></span><span class="cursor">_</span>
+                    </div>
+                    
+                    <p class="bio">
+                        <span class="highlight-green">[+]</span> Siswa SMA yang mendalami <span class="highlight-red">Web Development</span> & <span class="highlight-red">Cybersecurity</span>.<br>
+                        <span class="highlight-green">[+]</span> Aktif sebagai <span class="highlight-white">Intermediate CTF Player</span>.<br>
+                        <span class="highlight-green">[+]</span> Tech stack: Laravel, Next.js, React, & Fundamental Web.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="skills">
+                <h2><span class="highlight-green">></span> cat skills.txt</h2>
+                <div class="skill-list">
+                    <div class="skill-item"><span class="tag">[WEB]</span> HTML5 / CSS3 / JavaScript</div>
+                    <div class="skill-item"><span class="tag">[FRAMEWORK]</span> Laravel / React / Next.js</div>
+                    <div class="skill-item"><span class="tag red">[SEC]</span> Intermediate CTF Player</div>
+                    <div class="skill-item"><span class="tag red">[SEC]</span> Linux (BlackArch) / Networking</div>
+                </div>
+            </section>
+
+            <!-- Connect Section -->
+            <section class="connect">
+                <h2><span class="highlight-green">></span> ./connect.sh --social</h2>
+                <div class="links">
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn">
+                        <span class="prefix">></span> WhatsApp
+                    </a>
+                    <a href="https://github.com/username-lu" target="_blank" class="btn">
+                        <span class="prefix">></span> GitHub
+                    </a>
+                    <a href="https://instagram.com/username-lu" target="_blank" class="btn">
+                        <span class="prefix">></span> Instagram
+                    </a>
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Ardhiansyah. Dibuat dengan HTML, CSS, & JS Murni.</p>
+        <p>Copyright © 2024 Ardhiansyah. All systems operational.</p>
     </footer>
 
-    <!-- Hubungkan ke JS -->
     <script src="script.js"></script>
 </body>
 </html>
