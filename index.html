@@ -1,19 +1,72 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Profil Saya - Ardhiansyah</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="stylesheet" href="https://googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ardhiansyah - Portfolio</title>
+    <!-- Hubungkan ke CSS -->
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="kartu-profil">
-      <img src="foto-profil.jpg" alt="Foto profil saya">
-      <h1>Ardhiansyah Emir Aryoputro</h1>
-      <p>Siswa SMA yang tertarik dengan coding dan cybersecurity</p>
-      <a href="https://www.instagram.com/ardhianzz_23">Kunjungi Akun Instagram Saya</a>
-      <button id="SapaButton">Sapa Saya!</button>
-    </div>
-   <script src="script.js"></script>
-  </body>
+    <!-- Font dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Ikon dari FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Effect -->
+    <div class="bg-glow"></div>
+
+    <main class="container">
+        <!-- Profile Section -->
+        <section class="hero">
+            <div class="profile-img-container">
+                <!-- GANTI URL INI PAKAI FOTO LU NANTI -->
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Ardhiansyah&backgroundColor=00f2fe" alt="Foto Profil" class="profile-img">
+            </div>
+            
+            <h1 class="name">Ardhiansyah Emir Aryoputro</h1>
+            
+            <!-- Efek typing diatur di script.js -->
+            <p class="role" id="typing-text"></p>
+            
+            <p class="bio">
+                Siswa SMA yang sedang mendalami dunia <strong>Web Development</strong> dan <strong>Cybersecurity</strong>. 
+                Biasa ngoding pakai Laravel, React, dan Next.js, tapi hari ini lagi asik poles fundamental HTML, CSS, & JS.
+            </p>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-wa" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://github.com/username-lu" target="_blank" class="btn btn-gh" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://instagram.com/username-lu" target="_blank" class="btn btn-ig" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills">
+            <h2>Tech Stack & Interests</h2>
+            <div class="badges">
+                <span class="badge">HTML5</span>
+                <span class="badge">CSS3</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">Laravel</span>
+                <span class="badge">React</span>
+                <span class="badge">Next.js</span>
+                <span class="badge">CyberSec</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ardhiansyah. Dibuat dengan HTML, CSS, & JS Murni.</p>
+    </footer>
+
+    <!-- Hubungkan ke JS -->
+    <script src="script.js"></script>
+</body>
 </html>
